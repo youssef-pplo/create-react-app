@@ -1,25 +1,107 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+const tracksData = [
+    {
+        id: 'python-basics',
+        title: 'أساسيات لغة بايثون',
+        category: 'برمجة',
+        description: 'تعلم أساسيات بايثون، واحدة من أسهل وأقوى لغات البرمجة في العالم. هذا المسار مثالي للمبتدئين.',
+        videoId: 'mvZHDpCHphk',
+        quiz: [
+            { question: 'ما هي الوظيفة المستخدمة لطباعة المخرجات في بايثون؟', options: ['print()', 'console.log()', 'display()', 'echo()'], correctAnswer: 'print()' },
+            { question: 'أي من التالي هو نوع بيانات غير قابل للتغيير في بايثون؟', options: ['List', 'Dictionary', 'Set', 'Tuple'], correctAnswer: 'Tuple' },
+            { question: 'كيف تبدأ تعليقًا من سطر واحد في بايثون؟', options: ['//', '#', '/*', '<!--'], correctAnswer: '#' },
+            { question: 'ما هي الكلمة المفتاحية المستخدمة لتعريف دالة في بايثون؟', options: ['function', 'def', 'fun', 'define'], correctAnswer: 'def' },
+            { question: 'ماذا تُرجع `len("مرحباً")`؟', options: ['5', '6', '4', 'خطأ'], correctAnswer: '5' },
+        ],
+    },
+    {
+        id: 'html-fundamentals',
+        title: 'مدخل إلى HTML5',
+        category: 'تطوير الويب',
+        description: 'اكتشف هيكل صفحات الويب مع HTML5. تعلم كيفية بناء صفحات ويب بسيطة ومنظمة.',
+        videoId: '6QAELgirvjs',
+        quiz: [
+            { question: 'ماذا يمثل اختصار HTML؟', options: ['Hyper Text Markup Language', 'High Tech Modern Language', 'Hyperlink and Text Markup Language', 'Home Tool Markup Language'], correctAnswer: 'Hyper Text Markup Language' },
+            { question: 'أي وسم يستخدم لإنشاء فقرة نصية؟', options: ['<p>', '<div>', '<span>', '<text>'], correctAnswer: '<p>' },
+            { question: 'ما هو الوسم الصحيح لإدراج صورة؟', options: ['<image src="url">', '<img src="url">', '<picture src="url">', '<src img="url">'], correctAnswer: '<img src="url">' },
+            { question: 'أي وسم يستخدم لإنشاء رابط تشعبي؟', options: ['<link>', '<a>', '<href>', '<hyperlink>'], correctAnswer: '<a>' },
+            { question: 'ما هو دور السمة `alt` في وسم `<img>`؟', options: ['إضافة عنوان للصورة', 'تحديد عرض الصورة', 'عرض نص بديل إذا لم يتم تحميل الصورة', 'إضافة رابط للصورة'], correctAnswer: 'عرض نص بديل إذا لم يتم تحميل الصورة' },
+        ],
+    },
+    {
+        id: 'css-for-beginners',
+        title: 'تنسيق الصفحات مع CSS3',
+        category: 'تطوير الويب',
+        description: 'أضف لمسة من الجمال والإبداع لصفحات الويب الخاصة بك باستخدام CSS3. تعلم كيفية التحكم في الألوان والخطوط والتخطيط.',
+        videoId: 'qyVkLebgfzY',
+        quiz: [
+            { question: 'ماذا يمثل اختصار CSS؟', options: ['Cascading Style Sheets', 'Creative Style Sheets', 'Computer Style Sheets', 'Colorful Style Sheets'], correctAnswer: 'Cascading Style Sheets' },
+            { question: 'أي خاصية تستخدم لتغيير لون خلفية عنصر؟', options: ['color', 'background-color', 'bgcolor', 'background'], correctAnswer: 'background-color' },
+            { question: 'كيف تختار عنصرًا له `id="header"`؟', options: ['.header', '#header', 'header', '*header'], correctAnswer: '#header' },
+            { question: 'أي خاصية تستخدم لتغيير لون النص؟', options: ['text-color', 'font-color', 'color', 'text-style'], correctAnswer: 'color' },
+            { question: 'ما هو نموذج الصندوق (Box Model) في CSS بالترتيب من الداخل للخارج؟', options: ['Margin, Border, Padding, Content', 'Content, Padding, Border, Margin', 'Content, Margin, Border, Padding', 'Padding, Content, Border, Margin'], correctAnswer: 'Content, Padding, Border, Margin' },
+        ],
+    },
+    {
+        id: 'javascript-essentials',
+        title: 'أساسيات جافاسكريبت',
+        category: 'تطوير الويب',
+        description: 'اجعل صفحات الويب تفاعلية وديناميكية مع جافاسكريبت، لغة البرمجة الأساسية للويب.',
+        videoId: 'gIGGhFlGgLI',
+        quiz: [
+            { question: 'كيف تعلن عن متغير يمكن تغيير قيمته؟', options: ['const', 'var', 'let', 'جميع ما سبق'], correctAnswer: 'let' },
+            { question: 'أي رمز يستخدم للمقارنة الصارمة (قيمة ونوع)؟', options: ['==', '=', '===', '!='], correctAnswer: '===' },
+            { question: 'كيف تحصل على عنصر HTML باستخدام id الخاص به؟', options: ['document.getElementById()', 'document.querySelector()', 'document.getElement()', 'window.getElementById()'], correctAnswer: 'document.getElementById()' },
+            { question: 'ما هي نتيجة `typeof "5"`؟', options: ['number', 'string', 'object', 'undefined'], correctAnswer: 'string' },
+            { question: 'أي دالة تستخدم لتحويل JSON إلى كائن JavaScript؟', options: ['JSON.parse()', 'JSON.stringify()', 'JSON.object()', 'JSON.convert()'], correctAnswer: 'JSON.parse()' },
+        ],
+    },
+    {
+        id: 'ai-introduction',
+        title: 'مقدمة في الذكاء الاصطناعي',
+        category: 'الذكاء الاصطناعي',
+        description: 'استكشف عالم الذكاء الاصطناعي المثير، وتعرف على مفاهيمه الأساسية وتطبيقاته العملية التي تغير عالمنا.',
+        videoId: '0I9qt2YQlvM',
+        quiz: [
+            { question: 'ما هو المجال الفرعي من الذكاء الاصطناعي الذي يركز على تدريب الآلات من البيانات؟', options: ['الروبوتات', 'تعلم الآلة', 'معالجة اللغات الطبيعية', 'الرؤية الحاسوبية'], correctAnswer: 'تعلم الآلة' },
+            { question: 'ماذا يمثل "اختبار تورينج"؟', options: ['اختبار لسرعة الحاسوب', 'اختبار لقدرة الآلة على إظهار سلوك ذكي لا يمكن تمييزه عن الإنسان', 'اختبار لقوة معالج الرسوميات', 'اختبار لأمان النظام'], correctAnswer: 'اختبار لقدرة الآلة على إظهار سلوك ذكي لا يمكن تمييزه عن الإنسان' },
+            { question: 'أي من التالي مثال على "التعلم الخاضع للإشراف"؟', options: ['تجميع العملاء بناءً على سلوك الشراء', 'تصنيف رسائل البريد الإلكتروني إلى "عشوائي" أو "هام"', 'لعب الشطرنج ضد النفس للتحسن', 'اكتشاف أنماط غريبة في المعاملات المالية'], correctAnswer: 'تصنيف رسائل البريد الإلكتروني إلى "عشوائي" أو "هام"' },
+        ],
+    },
+    {
+        id: 'cybersecurity-basics',
+        title: 'أساسيات الأمن السيبراني',
+        category: 'الأمن السيبراني',
+        description: 'تعلم كيفية حماية نفسك وبياناتك في العالم الرقمي. اكتشف التهديدات الشائعة وأفضل الممارسات للبقاء آمنًا.',
+        videoId: 'MR-jR0IAIQs',
+        quiz: [
+            { question: 'ما هو "التصيد الاحتيالي" (Phishing)؟', options: ['نوع من الفيروسات', 'هجوم يهدف لسرقة المعلومات الحساسة عن طريق انتحال هوية جهة موثوقة', 'برنامج لتشفير الملفات', 'جدار حماية'], correctAnswer: 'هجوم يهدف لسرقة المعلومات الحساسة عن طريق انتحال هوية جهة موثوقة' },
+            { question: 'أي من التالي يعتبر كلمة مرور قوية؟', options: ['12345678', 'password', 'Ahmed2023', 'Tr#v3L!ng@P$ris'], correctAnswer: 'Tr#v3L!ng@P$ris' },
+            { question: 'ما هي المصادقة الثنائية (2FA)؟', options: ['استخدام كلمتي مرور', 'عملية تسجيل دخول تتطلب طريقتين للتحقق من الهوية', 'برنامج مكافحة فيروسات', 'تشفير القرص الصلب'], correctAnswer: 'عملية تسجيل دخول تتطلب طريقتين للتحقق من الهوية' },
+        ],
+    },
+    {
+        id: 'git-and-github',
+        title: 'التحكم في الإصدارات مع Git و GitHub',
+        category: 'أدوات المطورين',
+        description: 'تعلم كيفية تتبع التغييرات في مشاريعك البرمجية والتعاون مع المطورين الآخرين باستخدام Git و GitHub.',
+        videoId: 'fDkR0TDR9dI',
+        quiz: [
+            { question: 'ما هو الأمر المستخدم لتهيئة مستودع Git جديد؟', options: ['git start', 'git new', 'git init', 'git create'], correctAnswer: 'git init' },
+            { question: 'ما هو الأمر المستخدم لإرسال التغييرات الملتزم بها إلى مستودع بعيد؟', options: ['git pull', 'git push', 'git commit', 'git upload'], correctAnswer: 'git push' },
+            { question: 'ماذا يفعل الأمر `git clone`؟', options: ['يحذف مستودعًا', 'ينشئ نسخة محلية من مستودع بعيد', 'ينشئ فرعًا جديدًا', 'يدمج فرعين'], correctAnswer: 'ينشئ نسخة محلية من مستودع بعيد' },
+            { question: 'ما هو الأمر المستخدم لتسجيل التغييرات في المستودع المحلي؟', options: ['git add', 'git save', 'git stage', 'git commit -m "message"'], correctAnswer: 'git commit -m "message"' },
+        ],
+    },
+    {
+        id: 'react-intro',
+        title: 'مقدمة إلى React.js',
+        category: 'تطوير الويب',
+        description: 'اكتشف قوة بناء واجهات المستخدم الحديثة مع React، المكتبة الشهيرة من فيسبوك.',
+        videoId: '3AJfX4Cd64c',
+        quiz: [
+            { question: 'ما هو JSX؟', options: ['امتداد لجافاسكريبت يشبه HTML', 'نوع بيانات في React', 'مكتبة لتنسيق الأنماط', 'نظام إدارة حالة'], correctAnswer: 'امتداد لجافاسكريبت يشبه HTML' },
+            { question: 'كيف تمرر البيانات من مكون أب إلى مكون ابن؟', options: ['عبر State', 'عبر Context', 'عبر Props', 'عبر Redux'], correctAnswer: 'عبر Props' },
+            { question: 'ما هو الـ Hook المستخدم لإضافة حالة إلى المكونات الدالية؟', options: ['useEffect', 'useState', 'useContext', 'useReducer'], correctAnswer: 'useState' },
+        ],
+    },
+];
